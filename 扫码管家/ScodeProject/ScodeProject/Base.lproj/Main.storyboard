@@ -38,7 +38,7 @@
                                     <constraint firstAttribute="height" constant="80" id="eNI-OV-2Ts"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工序扫码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUQ-uF-bFC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="管理助手" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUQ-uF-bFC">
                                 <rect key="frame" x="0.0" y="125" width="375" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="v5t-23-zYR"/>
