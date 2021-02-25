@@ -113,8 +113,6 @@ NSString* const QikeychainService = @"com.qishare.ios.keychain";
     
     
     
-    NSString *dd = @"dsdsdsdsd";
-    
     //存储
     [KDBPersistenceTool savePrefWithKey:@"name" stringValue:_nameTF.text];
     [KDBPersistenceTool savePrefWithKey:@"pawd" stringValue:_passwdTF.text];
@@ -162,6 +160,9 @@ NSString* const QikeychainService = @"com.qishare.ios.keychain";
         NSXMLParser *parser = (NSXMLParser *)data;
         parser.delegate = self;
         [parser parse];
+        if (error) {
+            [SVProgressHUD showErrorWithStatus:@"登录失败"];
+        }
         
     }];
 }
@@ -169,15 +170,12 @@ NSString* const QikeychainService = @"com.qishare.ios.keychain";
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName
 {
-    
-    
     NSString *dd = self.htmlString;
-    NSArray *array = [dd componentsSeparatedByString:@"###"];
-    NSString *contentString = array[1];
+    NSString *contentString = [self.htmlString stringByReplacingOccurrencesOfString:@"#" withString:@""];
     contentString = [contentString stringByReplacingOccurrencesOfString:@"^" withString:@"\""];
-    
-
+    contentString = [contentString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     self.htmlString = @"";
+    
     self.homeModel = [HomeModel mj_objectWithKeyValues:contentString];
     int code = self.homeModel.code.intValue;
     NSLog(@"dddd----%@",self.homeModel.code);
